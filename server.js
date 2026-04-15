@@ -35,6 +35,11 @@ const createTables = async () => {
 			pitches INTEGER NOT NULL,
 			created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 		);
+		CREATE TABLE IF NOT EXISTS players (
+			id SERIAL PRIMARY KEY,
+			name TEXT NOT NULL,
+			team_id INTEGER REFERENCES teams(id)
+		);
 	`);
 	// Insert default teams if not present
 	await pool.query(`
@@ -89,17 +94,6 @@ app.post('/api/pitch_counts', async (req, res) => {
 	res.json(result.rows[0]);
 });
 
-// Serve frontend
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`);
-});
-
-// --- Add Player API Endpoints ---
 // Get players for a team
 app.get('/api/players', async (req, res) => {
 	const { team_id } = req.query;
@@ -117,4 +111,14 @@ app.post('/api/players', async (req, res) => {
 		[name, team_id]
 	);
 	res.json(result.rows[0]);
+});
+
+// Serve frontend (must be LAST)
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+	console.log(`Server running on port ${PORT}`);
 });
