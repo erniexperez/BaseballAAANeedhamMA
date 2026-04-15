@@ -9,15 +9,22 @@ async function fetchJSON(url, options = {}) {
 }
 
 // State
+
 let teams = [];
 let games = [];
 let pitchCounts = [];
+let players = [];
 let selectedTeamId = null;
 
 async function loadData() {
 	teams = await fetchJSON('/api/teams');
 	games = await fetchJSON('/api/games');
 	pitchCounts = await fetchJSON('/api/pitch_counts');
+	if (selectedTeamId) {
+		players = await fetchJSON(`/api/players?team_id=${selectedTeamId}`);
+	} else {
+		players = [];
+	}
 }
 
 function renderSidebar() {
@@ -48,15 +55,15 @@ function renderContent() {
 				<button class="btn" type="submit">Record Game</button>
 			</form>
 
-			<div style="margin: 16px 0;"><b>Players:</b></div>
-			<button class="btn" id="add-player-btn">Add Player</button>
-
 			<div style="margin: 16px 0;"><b>Roster</b></div>
 			<form id="roster-form">
 				<label>Check eligibility for date: <input type="date" name="eligibility_date"></label>
 				<input type="text" name="player_name" placeholder="New Player Name">
 				<button class="btn" type="submit">Add Player</button>
 			</form>
+			<ul>
+				${players.map(p => `<li>${p.name}</li>`).join('')}
+			</ul>
 
 			<div style="margin: 16px 0;"><b>Game History</b></div>
 			<table>
@@ -113,13 +120,22 @@ function render() {
 	// Roster form (add player)
 	document.getElementById('roster-form').onsubmit = async e => {
 		e.preventDefault();
-		// This is a placeholder for player add logic
-		alert('Add player functionality not implemented in this demo.');
-	};
-
-	// Add player button
-	document.getElementById('add-player-btn').onclick = () => {
-		alert('Add player functionality not implemented in this demo.');
+		const fd = new FormData(e.target);
+		const playerName = fd.get('player_name');
+		if (!playerName || !selectedTeamId) {
+			alert('Please select a team and enter a player name.');
+			return;
+		}
+		try {
+			await fetchJSON('/api/players', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ name: playerName, team_id: selectedTeamId })
+			});
+			await refresh();
+		} catch (err) {
+			alert('Error adding player: ' + err);
+		}
 	};
 }
 

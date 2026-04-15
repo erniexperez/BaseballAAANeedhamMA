@@ -98,3 +98,23 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
 });
+
+// --- Add Player API Endpoints ---
+// Get players for a team
+app.get('/api/players', async (req, res) => {
+	const { team_id } = req.query;
+	if (!team_id) return res.status(400).json({ error: 'team_id required' });
+	const result = await pool.query('SELECT * FROM players WHERE team_id = $1 ORDER BY name', [team_id]);
+	res.json(result.rows);
+});
+
+// Add a player
+app.post('/api/players', async (req, res) => {
+	const { name, team_id } = req.body;
+	if (!name || !team_id) return res.status(400).json({ error: 'name and team_id required' });
+	const result = await pool.query(
+		'INSERT INTO players (name, team_id) VALUES ($1, $2) RETURNING *',
+		[name, team_id]
+	);
+	res.json(result.rows[0]);
+});
