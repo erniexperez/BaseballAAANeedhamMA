@@ -48,13 +48,8 @@
                 <label for="opponent">Opponent:</label>
                 <input type="text" id="opponent" required>
                 <h3>Players:</h3>
-                <div class="player">
-                    <label>Player Name:</label>
-                    <input type="text" class="playerName" list="playersList" required>
-                    <label>Pitch Count:</label>
-                    <input type="number" class="pitchCount" min="1" max="75" required>
-                    <span class="status"></span>
-                </div>
+                <div id="playersContainer"></div>
+                <button type="button" id="addFormPlayerBtn">Add Player</button>
                 <button type="submit">Record Game</button>
             </form>
             <section>

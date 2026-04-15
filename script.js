@@ -3,12 +3,37 @@ document.addEventListener('DOMContentLoaded', function() {
     setupStatusListeners();
     setupRosterListeners();
     setupTeamNav();
+    setupFormPlayerControls();
 });
+
 
 document.getElementById('gameForm').addEventListener('submit', function(e) {
     e.preventDefault();
     submitGame();
 });
+
+function setupFormPlayerControls() {
+    const container = document.getElementById('playersContainer');
+    function addPlayerRow() {
+        const div = document.createElement('div');
+        div.className = 'player';
+        div.innerHTML = `
+            <label>Player Name:</label>
+            <input type="text" class="playerName" list="playersList" required>
+            <label>Pitch Count:</label>
+            <input type="number" class="pitchCount" min="1" max="75" required>
+            <span class="status"></span>
+            <button type="button" class="removePlayerBtn">Remove</button>
+        `;
+        div.querySelector('.removePlayerBtn').onclick = () => {
+            div.remove();
+        };
+        container.appendChild(div);
+    }
+    document.getElementById('addFormPlayerBtn').onclick = addPlayerRow;
+    // Add one row by default
+    addPlayerRow();
+}
 
 function getSelectedTeam() {
     return document.getElementById('teamSelect').value;
@@ -148,23 +173,26 @@ function submitGame() {
         alert('Please select a team first');
         return;
     }
-    const email = document.getElementById('email').value;
     const date = document.getElementById('date').value;
     const opponent = document.getElementById('opponent').value;
 
     const players = [];
-    const playerDivs = document.querySelectorAll('.player');
+    const playerDivs = document.querySelectorAll('#playersContainer .player');
+    let valid = true;
     playerDivs.forEach(div => {
         const name = div.querySelector('.playerName').value.trim();
         const pitches = parseInt(div.querySelector('.pitchCount').value);
-        if (name && pitches) {
+        if (name && !isNaN(pitches)) {
             if (pitches < 1 || pitches > 75) {
                 alert('Pitch count must be between 1 and 75');
+                valid = false;
                 return;
             }
             players.push({ name, pitches });
         }
     });
+
+    if (!valid) return;
 
     if (players.length === 0) {
         alert('At least one player must be entered');
@@ -180,13 +208,16 @@ function submitGame() {
     }
 
     // Add game
-    const newGame = { email, team, date, opponent, players };
+    const newGame = { team, date, opponent, players };
     games.push(newGame);
     saveGames(games);
     displayFilteredGames();
 
-    // Reset form
+    // Reset form and player rows
     document.getElementById('gameForm').reset();
+    document.getElementById('playersContainer').innerHTML = '';
+    // Add one player row back
+    setupFormPlayerControls();
     alert('Game recorded successfully!');
 }
 
