@@ -4,10 +4,67 @@ body {
     background-color: #f4f4f4;
 }
 
+
 .page-container {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 20px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 20px;
+}
+
+@media (max-width: 700px) {
+    .page-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .sidebar {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        margin-bottom: 10px;
+        padding: 10px 5px;
+        font-size: 1em;
+    }
+    .content {
+        padding: 0 2vw;
+    }
+    header {
+        flex-direction: column;
+        padding: 10px 2vw;
+        text-align: center;
+    }
+    h1, h2, .team-home-header {
+        font-size: 1.2em;
+    }
+    form, table, #rosterList li {
+        font-size: 1em;
+        padding: 10px 2vw;
+    }
+    table, th, td {
+        font-size: 0.95em;
+        padding: 6px;
+    }
+    .player {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .player label {
+        width: auto;
+        margin-right: 0;
+    }
+    .sidebar button {
+        font-size: 1em;
+        padding: 10px 0;
+    }
+    input[type="text"], input[type="number"], input[type="date"] {
+        font-size: 1em;
+        padding: 8px;
+    }
+    button {
+        width: 100%;
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
 }
 
     background-color: #222;
