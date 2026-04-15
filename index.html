@@ -1,80 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0">
-    <title>Needham MA AAA Baseball Pitch Tracker</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitch Tracker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="page-container">
-        <div class="sidebar">
-            <h2>Teams</h2>
-            <div id="teamNav">
-                 <button data-team="Barons">Barons / Coach James Slavet</button>
-                 <button data-team="Curve">Curve / Coach Ernie Perez</button>
-                 <button data-team="Iron Birds">Iron Birds / Coach Jared Wilk</button>
-                 <button data-team="Green Jackets">Green Jackets / Coach Jonathan Ellis</button>
-                 <button data-team="Tourists">Tourists / Coach Evan Olesh</button>
-                 <button data-team="Sky Carp">Sky Carp / Coach Greg Wise</button>
-                 <button data-team="Rubber Ducks">Rubber Ducks / Coach Mike Nason</button>
-                 <button data-team="Isotopes">Isotopes / Coach Anthony Fava</button>
-            </div>
-        </div>
-        <div class="content">
-            <header>
-                    <!-- Logo removed -->
-                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%">
-                    <div style="font-size:2.2em;font-family:Arial,sans-serif;text-align:center;margin-bottom:0;">AAA Baseball League</div>
-                    <div style="font-size:2.2em;color:#003a82;font-family:Arial,sans-serif;text-align:center;margin-top:0;">Needham MA</div>
-                </div>
-            </header>
-            <h2 id="teamHomeHeader">Select a team to view roster and pitcher status</h2>
-            <form id="gameForm">
-                <label for="teamSelect">Team:</label>
-                <select id="teamSelect" required>
-                    <option value="">Select Team</option>
-                    <option value="Barons">Barons / Coach James Slavet</option>
-                    <option value="Curve">Curve / Coach Ernie Perez</option>
-                    <option value="Iron Birds">Iron Birds / Coach Jared Wilk</option>
-                    <option value="Green Jackets">Green Jackets / Coach Jonathan Ellis</option>
-                    <option value="Tourists">Tourists / Coach Evan Olesh</option>
-                    <option value="Sky Carp">Sky Carp / Coach Greg Wise</option>
-                    <option value="Rubber Ducks">Rubber Ducks / Coach Mike Nason</option>
-                    <option value="Isotopes">Isotopes / Coach Anthony Fava</option>
-                </select>
-                <label for="date">Date:</label>
-                <input type="date" id="date" required>
-                <label for="opponent">Opponent:</label>
-                <input type="text" id="opponent" required>
-                <h3>Players:</h3>
-                <div id="playersContainer"></div>
-                <button type="button" id="addFormPlayerBtn">Add Player</button>
-                <button type="submit">Record Game</button>
-            </form>
-            <section>
-                <h2>Roster</h2>
-                <input type="text" id="newPlayer" placeholder="New Player Name">
-                <button id="addPlayerBtn">Add Player</button>
-                <ul id="rosterList"></ul>
-            </section>
-            <section>
-                <h2>Game History</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Team</th>
-                            <th>Opponent</th>
-                            <th>Players</th>
-                        </tr>
-                    </thead>
-                    <tbody id="gamesBody"></tbody>
-                </table>
-            </section>
-            <datalist id="playersList"></datalist>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <h1>Pitch Tracker</h1>
+  <div id="app"></div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,329 +1,62 @@
-@media (max-width: 700px) {
-    .page-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-    .sidebar {
-        width: 100%;
-        border-radius: 0 0 8px 8px;
-        margin-bottom: 10px;
-        padding: 10px 5px;
-        font-size: 1em;
-    }
-    .content {
-        padding: 0 2vw;
-    }
-    header {
-        flex-direction: column;
-        padding: 10px 2vw;
-        text-align: center;
-    }
-    h1, h2, .team-home-header {
-        font-size: 1.2em;
-    }
-    form, table, #rosterList li {
-        font-size: 1em;
-        padding: 10px 2vw;
-    }
-    table, th, td {
-        font-size: 0.95em;
-        padding: 6px;
-    }
-    .player {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        margin-bottom: 12px;
-    }
-    .player label {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 2px;
-    }
-    .player input[type="text"],
-    .player input[type="number"] {
-        width: 100%;
-        box-sizing: border-box;
-        margin-bottom: 4px;
-    }
-    .sidebar button {
-        font-size: 1em;
-        padding: 10px 0;
-    }
-    input[type="text"], input[type="number"], input[type="date"] {
-        font-size: 1em;
-        padding: 8px;
-        width: 100%;
-        box-sizing: border-box;
-        margin-bottom: 8px;
-    }
-    button {
-        width: 100%;
-        font-size: 1em;
-        margin-bottom: 8px;
-    }
-}
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
-
-
-.page-container {
-        display: grid;
-        grid-template-columns: 220px 1fr;
-        gap: 20px;
-}
-
-@media (max-width: 700px) {
-    .page-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-    .sidebar {
-        width: 100%;
-        border-radius: 0 0 8px 8px;
-        margin-bottom: 10px;
-        padding: 10px 5px;
-        font-size: 1em;
-    }
-    .content {
-        padding: 0 2vw;
-    }
-    header {
-        flex-direction: column;
-        padding: 10px 2vw;
-        text-align: center;
-    }
-    h1, h2, .team-home-header {
-        font-size: 1.2em;
-    }
-    form, table, #rosterList li {
-        font-size: 1em;
-        padding: 10px 2vw;
-    }
-    table, th, td {
-        font-size: 0.95em;
-        padding: 6px;
-    }
-    .player {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
-    .player label {
-        width: auto;
-        margin-right: 0;
-    }
-    .sidebar button {
-        font-size: 1em;
-        padding: 10px 0;
-    }
-    input[type="text"], input[type="number"], input[type="date"] {
-        font-size: 1em;
-        padding: 8px;
-    }
-    button {
-        width: 100%;
-        font-size: 1em;
-        margin-bottom: 8px;
-    }
-}
-
-    background-color: #222;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.sidebar h2 {
-    margin-top: 0;
-    color: #ffd700;
-}
-
-.sidebar button {
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-    margin-bottom: 8px;
-    border: 1px solid #003a82;
-    background-color: #0057B8;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.sidebar button:hover {
-    background-color: #eef4ff;
-}
-
-.sidebar button.active {
-    background-color: #0057B8;
-    color: white;
-    border-color: #0057B8;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.logo {
-    margin-right: 20px;
-}
-
 h1, h2 {
-    color: #333;
-    margin: 0;
+  color: #333;
 }
-
-h1 {
-    font-size: 2em;
-    text-align: left;
-}
-
-#teamSelect {
-    display: block;
-    margin-top: 10px;
-    padding: 8px;
-    font-size: 16px;
-}
-
-.team-home-header {
-    background-color: #eef4ff;
-    border: 1px solid #c7dafd;
-    padding: 14px;
-    margin: 20px 0;
-    border-radius: 8px;
-    color: #003a82;
-    font-weight: bold;
-}
-
 form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
-
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
-
 input[type="text"], input[type="email"], input[type="date"], input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-
-.player {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.player label {
-    width: 150px;
-    margin-right: 10px;
-}
-
-.player input {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.status {
-    font-weight: bold;
-    margin-left: 10px;
-}
-
 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
-button:hover {
-    background-color: #45a049;
+button:disabled {
+  background: #ccc;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
-
-th {
-    background-color: #f2f2f2;
+.table th {
+  background: #f4f4f4;
 }
-
-tr:hover {
-    background-color: #f5f5f5;
-}
-
-#rosterList {
-    list-style-type: none;
-    padding: 0;
-}
-
-#rosterList li {
-    background-color: #fff;
-    padding: 8px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .traffic-light {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 10px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
-
-#rosterList button {
-    background-color: #f44336;
-    padding: 5px 10px;
-    font-size: 14px;
-}
-
-#rosterList button:hover {
-    background-color: #d32f2f;
-}
+.traffic-light.green { background: #4caf50; }
+.traffic-light.yellow { background: #ffeb3b; }
+.traffic-light.red { background: #f44336; }
